@@ -1,6 +1,6 @@
 import pandas as pd 
 
-def transform_data(raw_records: lists) -> pd.DataFrame:
+def transform_data(raw_records: list) -> pd.DataFrame:
 
     """
     
