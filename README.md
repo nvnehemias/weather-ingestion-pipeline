@@ -56,11 +56,11 @@ weather-ingestion-pipeline/
 
 ---
 
-> "I built a modular Python ingestion pipeline that fetches real-time weather data from the Open-Meteo REST API for multiple global locations and loads it into both a PostgreSQL warehouse staging table and a local Parquet data lake file. 
->
-> Rather than putting everything into one massive script, I structured it like a production ETL application. I separated the extraction, transformation, quality checking, and loading steps into individual Python modules under `src/`, orchestrated by a single `main.py` entry point. 
->
-> I also prioritized data reliability and security. Environment variables and database credentials are managed via `.env` files so secrets are never pushed to GitHub. Before any data gets written to PostgreSQL, I run automated quality checks to validate that schemas align, columns aren't null, and values stay within expected physical limits. If any check fails, the pipeline raises an exception before dirty data hits the staging layer."
+- "I built a modular Python ingestion pipeline that fetches real-time weather data from the Open-Meteo REST API for multiple global locations and loads it into both a PostgreSQL warehouse staging table and a local Parquet data lake file. 
+
+- Rather than putting everything into one massive script, I structured it like a production ETL application. I separated the extraction, transformation, quality checking, and loading steps into individual Python modules under `src/`, orchestrated by a single `main.py` entry point. 
+
+- I also prioritized data reliability and security. Environment variables and database credentials are managed via `.env` files so secrets are never pushed to GitHub. Before any data gets written to PostgreSQL, I run automated quality checks to validate that schemas align, columns aren't null, and values stay within expected physical limits. If any check fails, the pipeline raises an exception before dirty data hits the staging layer."
 
 
 - **On Architecture:** *"I isolated environment configuration (`config.py`), database connections (`database.py`), and target settings like GPS coordinates (`constants.py`). That way, if we want to add 20 new cities or point to a remote Snowflake database later, we only update a configuration file without touching core extraction logic."*
