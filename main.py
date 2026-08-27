@@ -11,7 +11,7 @@ def run_pipeline():
     # Step 1: Extract
     for city, coords in cities.items():
         print(f"Fetching data for {city}")
-        record = extract_weather(city, coords["lat"],coords["lon"])
+        record = extract_weather(city, coords["lat"],coords["long"])
         raw_data.append(record)
 
     # Step 2: Transform

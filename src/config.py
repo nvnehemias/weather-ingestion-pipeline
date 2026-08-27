@@ -4,8 +4,12 @@ import os
 # Load variables from the .env file 
 load_dotenv()
 
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_USER = os.getenv("DB_USER","postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD","")
+DB_HOST = os.getenv("DB_HOST","localhost")
+
+
+raw_port = os.getenv("DB_PORT")
+DB_PORT = raw_port if raw_port and raw_port.strip() != "" else "5432"
+
+DB_NAME = os.getenv("DB_NAME","postgres")

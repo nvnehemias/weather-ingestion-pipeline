@@ -1,5 +1,5 @@
 import requests 
-from datetime import datetime 
+from datetime import datetime, timezone
 
 def extract_weather(city: str, lat: float, lon: float) -> dict:
     """
