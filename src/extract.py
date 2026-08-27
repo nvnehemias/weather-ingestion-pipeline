@@ -14,6 +14,6 @@ def extract_weather(city: str, lat: float, lon: float) -> dict:
 
     data = response.json()["current_weather"]
     data["city"] = city 
-    data["ingested_at"] = datetime.utcnow().isoformat()
+    data["ingested_at"] = datetime.now(timezone.utc).isoformat()
 
     return data 
