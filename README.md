@@ -9,6 +9,30 @@ A lightweight, production-style Data Engineering pipeline that ingests real-time
 3. **Quality Gate**: Pre-load validation testing for nulls, empty payloads, and unreasonable values.
 4. **Storage/Load**: Dual-loading to SQLite (`stg_weather_current` table) and Parquet storage.
 
+# Open-Meteo Weather Data Ingestion Pipeline
+
+A modular, production-style Data Engineering ingestion pipeline built in Python. This project extracts near real-time weather metrics across global locations from the Open-Meteo REST API, enforces data quality assertions, standardizes metrics, and loads formatted data simultaneously into a local PostgreSQL staging environment and an Apache Parquet data lake format.
+
+## System Architecture
+
+```text
+[ Open-Meteo API ]
+       │
+       ▼
+ 1. Extract (src/extract.py)      ──> Modular API ingestion with timezone awareness
+       │
+       ▼
+ 2. Transform (src/transform.py)  ──> Column standardization & type enforcement
+       │
+       ▼
+ 3. Quality (src/quality.py)      ──> Defensive assertions (boundary checks, null validation)
+       │
+       ├────────────────────────┐
+       ▼                        ▼
+ 4. Load (src/load.py)    4. Load (src/load.py)
+  [ PostgreSQL Warehouse ]   [ Parquet Storage Lake ]
+```
+
 ## How to Run
 
 1. Clone repository:
