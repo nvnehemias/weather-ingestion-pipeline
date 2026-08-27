@@ -34,7 +34,7 @@ A modular, production-style Data Engineering ingestion pipeline built in Python.
 ```
 
 ## Project Structure
-
+```text
 weather-ingestion-pipeline/
 ├── .env.example            # Template for required environment variables
 ├── .gitignore               # Configured to ignore secrets, pycache, and virtualenvs
@@ -50,6 +50,7 @@ weather-ingestion-pipeline/
     ├── transform.py        # Schema cleaning and type casting module
     ├── quality.py          # Pre-load data assertion gate
     └── load.py             # Dual-destination loader (PostgreSQL & Parquet)
+```
 
 ## How to Run
 
