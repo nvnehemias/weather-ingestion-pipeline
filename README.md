@@ -33,6 +33,24 @@ A modular, production-style Data Engineering ingestion pipeline built in Python.
   [ PostgreSQL Warehouse ]   [ Parquet Storage Lake ]
 ```
 
+## Project Structure
+
+weather-ingestion-pipeline/
+├── .env.example            # Template for required environment variables
+├── .gitignore               # Configured to ignore secrets, pycache, and virtualenvs
+├── README.md               # Pipeline documentation
+├── requirements.txt        # Managed Python package dependencies
+├── main.py                 # Pipeline entrypoint orchestrator script
+└── src/
+    ├── __init__.py         # Package initialization marker
+    ├── config.py           # Environment credential reader
+    ├── constants.py        # Non-sensitive constants (target GPS coordinates, paths)
+    ├── database.py         # SQLAlchemy engine manager
+    ├── extract.py          # REST API extraction module
+    ├── transform.py        # Schema cleaning and type casting module
+    ├── quality.py          # Pre-load data assertion gate
+    └── load.py             # Dual-destination loader (PostgreSQL & Parquet)
+
 ## How to Run
 
 1. Clone repository:
