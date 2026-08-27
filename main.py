@@ -1,4 +1,4 @@
-from src.constrants import cities
+from src.constants import cities
 from src.extract import extract_weather 
 from src.transform import transform_data 
 from src.quality import validate_quality 
