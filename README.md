@@ -66,12 +66,8 @@ weather-ingestion-pipeline/
 - **On Architecture:** *"I isolated environment configuration (`config.py`), database connections (`database.py`), and target settings like GPS coordinates (`constants.py`). That way, if we want to add 20 new cities or point to a remote Snowflake database later, we only update a configuration file without touching core extraction logic."*
 - **On Dual-Destination Storage:** *"I loaded the output into PostgreSQL via SQLAlchemy for relational downstream modeling, but also saved snapshots as Parquet files. Parquet gives us a compressed, columnar backup format that’s ready for analytical engine processing or cloud storage like AWS S3."*
 
-<ElicitationsGroup message="What final step would you like to complete?">
+--- 
 
-  <Elicitation label="Stage, commit, and push all final project files to GitHub" query="Show me the exact git commands to commit and push the updated README.md and all refactored modular code to main."/>
-
-  <Elicitation label="Add a setup guide for scheduling this script with cron" query="Show me how to set up a quick crontab job on macOS to automatically run main.py every hour."/>
-</ElicitationsGroup>
 ## How to Run
 
 1. Clone repository:
